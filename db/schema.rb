@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_223116) do
+ActiveRecord::Schema.define(version: 2021_02_21_224959) do
 
   create_table "cubboards", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2021_02_21_223116) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shelves", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "cubboard_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cubboard_id"], name: "index_shelves_on_cubboard_id"
   end
 
 end

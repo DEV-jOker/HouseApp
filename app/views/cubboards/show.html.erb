@@ -13,8 +13,23 @@
 <p>
   <strong>Room:</strong>
   <%= link_to @cubboard.room.name, room_path(@cubboard.room) %>
-
 </p>
+
+<% unless @links.empty? %>
+  <%= render @links %>
+<% end %>
+
+<p>Shelves</p>
+
+<% unless @shelves.empty? %>
+  <ul>
+    <% @shelves.each do |shelve|%>
+      <li>
+        <%= link_to shelve.name, shelve %>
+      </li>
+    <%end%>
+  </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_cubboard_path(@cubboard) %> |
 <%= link_to 'Back', cubboards_path %>

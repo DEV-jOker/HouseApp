@@ -8,6 +8,8 @@ class CubboardsController < ApplicationController
 
   # GET /cubboards/1 or /cubboards/1.json
   def show
+    @links = @cubboard.links
+    @shelves = @cubboard.shelves
   end
 
   # GET /cubboards/new
