@@ -4,11 +4,19 @@
   <strong>Name:</strong>
   <%= @room.name %>
 </p>
-
+<% unless @links.empty? %>
+  <% @links.each do |link|%>
+    <%if link.format=="image"%>
+      <%= image_tag link.url%>
+    <%end%>
+  <%end%>
+<% end %>
 <p>
   <strong>Description:</strong>
   <%= @room.description %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>

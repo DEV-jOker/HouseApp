@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_201340) do
+ActiveRecord::Schema.define(version: 2021_02_21_205105) do
+
+  create_table "links", force: :cascade do |t|
+    t.string "url"
+    t.string "linkable_type"
+    t.integer "linkable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "format"
+    t.index ["linkable_type", "linkable_id"], name: "index_links_on_linkable_type_and_linkable_id"
+  end
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
