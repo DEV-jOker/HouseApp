@@ -12,7 +12,17 @@
   <%= @room.description %>
 </p>
 
+<p>Cupboard</p>
 
+<% unless @cubboards.empty? %>
+  <ul>
+    <% @cubboards.each do |cubboard|%>
+      <li>
+        <%= link_to cubboard.name, cubboard %>
+      </li>
+    <%end%>
+  </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>

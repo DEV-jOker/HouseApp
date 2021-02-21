@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_205105) do
+ActiveRecord::Schema.define(version: 2021_02_21_223116) do
+
+  create_table "cubboards", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_cubboards_on_room_id"
+  end
 
   create_table "links", force: :cascade do |t|
     t.string "url"
