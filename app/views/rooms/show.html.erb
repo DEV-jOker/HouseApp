@@ -5,11 +5,7 @@
   <%= @room.name %>
 </p>
 <% unless @links.empty? %>
-  <% @links.each do |link|%>
-    <%if link.format=="image"%>
-      <%= image_tag link.url%>
-    <%end%>
-  <%end%>
+  <%= render @links %>
 <% end %>
 <p>
   <strong>Description:</strong>
